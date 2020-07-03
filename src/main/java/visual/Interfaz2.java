@@ -92,7 +92,7 @@ public class Interfaz2 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int dato = Integer.parseInt(jTextField1.getText());
-        ArrayList matriz = modelo.trianguloPascual.crearMatriz(dato);
+        int[][] matriz = modelo.trianguloPascual.crearMatriz(dato);
         modelo.trianguloPascual.triangulo(jPanel1.getGraphics(), 285, 30, 30, 30, dato, matriz);
     }//GEN-LAST:event_jButton1ActionPerformed
 
