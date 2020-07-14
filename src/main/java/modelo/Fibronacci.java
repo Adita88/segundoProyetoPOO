@@ -259,54 +259,54 @@ public class Fibronacci extends TrianguloPascal{
 
                 if (i == 0){
                     g.setColor(color0);
-                    g.fillRect(50, m, ancho, alto);
+                    g.fillRect(20, m, ancho, alto);
                     g.setColor(Color.BLACK);
-                    g.drawString(String.valueOf(suma0), ancho+30, alto+m-10);
+                    g.drawString(String.valueOf(suma0), ancho, alto+m-10);
                 } else if (i == 1){
                     g.setColor(color1);
-                    g.fillRect(50, m, ancho, alto);
+                    g.fillRect(20, m, ancho, alto);
                     g.setColor(Color.BLACK);
-                    g.drawString(String.valueOf(suma1), ancho+30, alto+m-10);
+                    g.drawString(String.valueOf(suma1), ancho, alto+m-10);
                 } else  if (i == 2){
                     g.setColor(color2);
-                    g.fillRect(50, m, ancho, alto);
+                    g.fillRect(20, m, ancho, alto);
                     g.setColor(Color.BLACK);
-                    g.drawString(String.valueOf(suma2), ancho+30, alto+m-10);
+                    g.drawString(String.valueOf(suma2), ancho, alto+m-10);
                 } else  if (i == 3){
                     g.setColor(color3);
-                    g.fillRect(50, m, ancho, alto);
+                    g.fillRect(20, m, ancho, alto);
                     g.setColor(Color.BLACK);
-                    g.drawString(String.valueOf(suma3), ancho+30, alto+m-10);
+                    g.drawString(String.valueOf(suma3), ancho, alto+m-10);
                 } else  if (i == 4){
                     g.setColor(color4);
-                    g.fillRect(50, m, ancho, alto);
+                    g.fillRect(20, m, ancho, alto);
                     g.setColor(Color.BLACK);
-                    g.drawString(String.valueOf(suma4), ancho+30, alto+m-10);
+                    g.drawString(String.valueOf(suma4), ancho, alto+m-10);
                 } else  if (i == 5){
                     g.setColor(color5);
-                    g.fillRect(50, m, ancho, alto);
+                    g.fillRect(20, m, ancho, alto);
                     g.setColor(Color.BLACK);
-                    g.drawString(String.valueOf(suma5), ancho+30, alto+m-10);
+                    g.drawString(String.valueOf(suma5), ancho, alto+m-10);
                 } else  if (i == 6){
                     g.setColor(color6);
-                    g.fillRect(50, m, ancho, alto);
+                    g.fillRect(20, m, ancho, alto);
                     g.setColor(Color.BLACK);
-                    g.drawString(String.valueOf(suma6), ancho+30, alto+m-10);
+                    g.drawString(String.valueOf(suma6), ancho, alto+m-10);
                 } else  if (i == 7){
                     g.setColor(color7);
-                    g.fillRect(50, m, ancho, alto);
+                    g.fillRect(20, m, ancho, alto);
                     g.setColor(Color.BLACK);
-                    g.drawString(String.valueOf(suma7), ancho+30, alto+m-10);
+                    g.drawString(String.valueOf(suma7), ancho, alto+m-10);
                 } else  if (i == 8){
                     g.setColor(color8);
-                    g.fillRect(50, m, ancho, alto);
+                    g.fillRect(20, m, ancho, alto);
                     g.setColor(Color.BLACK);
-                    g.drawString(String.valueOf(suma8), ancho+30, alto+m-10);
+                    g.drawString(String.valueOf(suma8), ancho, alto+m-10);
                 } else {
                     g.setColor(color9);
-                    g.fillRect(50, m, ancho, alto);
+                    g.fillRect(20, m, ancho, alto);
                     g.setColor(Color.BLACK);
-                    g.drawString(String.valueOf(suma9), ancho+30, alto+m-10);
+                    g.drawString(String.valueOf(suma9), ancho, alto+m-10);
                 }
 
                 m += 30;

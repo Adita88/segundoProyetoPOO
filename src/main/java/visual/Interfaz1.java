@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
 
 import modelo.*;
 //import com.mapbox.api.isochrone;
@@ -47,17 +48,30 @@ public class Interfaz1 extends javax.swing.JFrame {
             if(componente instanceof JPanel)
                 componente.setVisible(false);
         
-        if(flagLimpiarPanel) limpiarVentana(panel);
+        if(flagLimpiarPanel) limpiarVentanas(panel);
         
         panel.setVisible(true);
+    }
+    
+    
+    private void ocultarPanelExceptoEste(JTextPane paneles, boolean ... limpiarPanel){
+        boolean flagLimpiarPanel = (limpiarPanel.length >= 1) ? limpiarPanel[0] : false;
+        
+        for(Component componente : textosPaneles.getComponents()) 
+            if(componente instanceof JPanel)
+                componente.setVisible(false);
+        
+        if(flagLimpiarPanel) limpiarVentana(paneles);
+        
+        paneles.setVisible(true);
     }
     
     /**
      * Limpiar ventanas
      * @param panel Panel a limpiar
      */
-    private void limpiarVentana(JPanel panel){
-        for(Component componente : panel.getComponents()){   
+    private void limpiarVentana(JTextPane paneles){
+        for(Component componente : paneles.getComponents()){   
             if(componente instanceof JTextField){
                 JTextField comp = (JTextField) componente;
                 comp.setText("");
@@ -73,6 +87,23 @@ public class Interfaz1 extends javax.swing.JFrame {
         }
     }
     
+    
+    private void limpiarVentanas(JPanel panel){
+        for(Component componente : panel.getComponents()){   
+            if(componente instanceof JTextField){
+                JTextField comp = (JTextField) componente;
+                comp.setText("");
+            }
+            else if (componente instanceof JComboBox){
+                JComboBox comp = (JComboBox) componente;
+                comp.setSelectedIndex(0);
+            }
+            else if(componente instanceof JFormattedTextField){
+                JFormattedTextField comp = (JFormattedTextField) componente;
+                comp.setText("");
+            }
+        }
+    }
     /**
      * Cerrar Programa
      * @return 
@@ -118,6 +149,21 @@ public class Interfaz1 extends javax.swing.JFrame {
         mostrarTriangulo_Panel = new javax.swing.JPanel();
         valorNum_Filas = new javax.swing.JTextField();
         botonIr_Quincunce = new javax.swing.JButton();
+        panelExplicacion = new javax.swing.JPanel();
+        textosPaneles = new javax.swing.JLayeredPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textoDiagonal = new javax.swing.JTextPane();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        textoParImpar = new javax.swing.JTextPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        textoSumaHorizontal = new javax.swing.JTextPane();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        textoSimetria = new javax.swing.JTextPane();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        textoFibronacci = new javax.swing.JTextPane();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        textoPascal = new javax.swing.JTextPane();
+        botonTriangulo = new javax.swing.JButton();
         Quincunce = new javax.swing.JPanel();
         textTitulo_RegistroSismos = new javax.swing.JLabel();
         botonAceptar_RegistroSismos = new javax.swing.JButton();
@@ -410,7 +456,7 @@ public class Interfaz1 extends javax.swing.JFrame {
         mostrarTriangulo_Panel.setLayout(mostrarTriangulo_PanelLayout);
         mostrarTriangulo_PanelLayout.setHorizontalGroup(
             mostrarTriangulo_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 464, Short.MAX_VALUE)
         );
         mostrarTriangulo_PanelLayout.setVerticalGroup(
             mostrarTriangulo_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -435,17 +481,107 @@ public class Interfaz1 extends javax.swing.JFrame {
             }
         });
 
+        panelExplicacion.setBackground(new java.awt.Color(255, 255, 255));
+
+        jScrollPane1.setViewportView(textoDiagonal);
+
+        jScrollPane2.setViewportView(textoParImpar);
+
+        jScrollPane3.setViewportView(textoSumaHorizontal);
+
+        jScrollPane4.setViewportView(textoSimetria);
+
+        jScrollPane5.setViewportView(textoFibronacci);
+
+        jScrollPane6.setViewportView(textoPascal);
+
+        textosPaneles.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        textosPaneles.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        textosPaneles.setLayer(jScrollPane3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        textosPaneles.setLayer(jScrollPane4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        textosPaneles.setLayer(jScrollPane5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        textosPaneles.setLayer(jScrollPane6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout textosPanelesLayout = new javax.swing.GroupLayout(textosPaneles);
+        textosPaneles.setLayout(textosPanelesLayout);
+        textosPanelesLayout.setHorizontalGroup(
+            textosPanelesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, textosPanelesLayout.createSequentialGroup()
+                .addGap(0, 27, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(textosPanelesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, textosPanelesLayout.createSequentialGroup()
+                    .addGap(0, 27, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(textosPanelesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, textosPanelesLayout.createSequentialGroup()
+                    .addGap(0, 27, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(textosPanelesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, textosPanelesLayout.createSequentialGroup()
+                    .addGap(0, 27, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(textosPanelesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, textosPanelesLayout.createSequentialGroup()
+                    .addGap(0, 28, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(textosPanelesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, textosPanelesLayout.createSequentialGroup()
+                    .addGap(0, 27, Short.MAX_VALUE)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        textosPanelesLayout.setVerticalGroup(
+            textosPanelesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1)
+            .addGroup(textosPanelesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
+            .addGroup(textosPanelesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE))
+            .addGroup(textosPanelesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
+            .addGroup(textosPanelesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
+            .addGroup(textosPanelesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout panelExplicacionLayout = new javax.swing.GroupLayout(panelExplicacion);
+        panelExplicacion.setLayout(panelExplicacionLayout);
+        panelExplicacionLayout.setHorizontalGroup(
+            panelExplicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelExplicacionLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(textosPaneles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        panelExplicacionLayout.setVerticalGroup(
+            panelExplicacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelExplicacionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(textosPaneles)
+                .addContainerGap())
+        );
+
+        botonTriangulo.setBackground(new java.awt.Color(29, 53, 87));
+        botonTriangulo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        botonTriangulo.setForeground(new java.awt.Color(255, 255, 255));
+        botonTriangulo.setText("Triángulo de Pascal");
+        botonTriangulo.setBorderPainted(false);
+        botonTriangulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonTrianguloActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Ventana_TriangulosLayout = new javax.swing.GroupLayout(Ventana_Triangulos);
         Ventana_Triangulos.setLayout(Ventana_TriangulosLayout);
         Ventana_TriangulosLayout.setHorizontalGroup(
             Ventana_TriangulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Ventana_TriangulosLayout.createSequentialGroup()
-                .addComponent(textTitulo_VentanaIntermedia, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(Ventana_TriangulosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(Ventana_TriangulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mostrarTriangulo_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(Ventana_TriangulosLayout.createSequentialGroup()
+                        .addComponent(mostrarTriangulo_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(Ventana_TriangulosLayout.createSequentialGroup()
                         .addGroup(Ventana_TriangulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(Ventana_TriangulosLayout.createSequentialGroup()
@@ -460,9 +596,12 @@ public class Interfaz1 extends javax.swing.JFrame {
                                 .addComponent(botonFibronacci)
                                 .addGap(23, 23, 23))
                             .addGroup(Ventana_TriangulosLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(valorNum_Filas, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(Ventana_TriangulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(botonTriangulo)
+                                    .addGroup(Ventana_TriangulosLayout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(valorNum_Filas, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(Ventana_TriangulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(Ventana_TriangulosLayout.createSequentialGroup()
@@ -471,13 +610,20 @@ public class Interfaz1 extends javax.swing.JFrame {
                                 .addComponent(botonSalir_NuevoSismo_Ubicacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(botonIr_Quincunce, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
+            .addGroup(Ventana_TriangulosLayout.createSequentialGroup()
+                .addGroup(Ventana_TriangulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(textTitulo_VentanaIntermedia, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelExplicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         Ventana_TriangulosLayout.setVerticalGroup(
             Ventana_TriangulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Ventana_TriangulosLayout.createSequentialGroup()
                 .addComponent(textTitulo_VentanaIntermedia)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mostrarTriangulo_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(Ventana_TriangulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(mostrarTriangulo_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelExplicacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(Ventana_TriangulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botonDiagonales)
@@ -489,11 +635,16 @@ public class Interfaz1 extends javax.swing.JFrame {
                     .addComponent(botonFibronacci))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Ventana_TriangulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Ventana_TriangulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(valorNum_Filas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(botonIr_Quincunce))
-                .addGap(46, 46, 46))
+                    .addGroup(Ventana_TriangulosLayout.createSequentialGroup()
+                        .addComponent(botonTriangulo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(Ventana_TriangulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(valorNum_Filas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Ventana_TriangulosLayout.createSequentialGroup()
+                        .addComponent(botonIr_Quincunce)
+                        .addGap(9, 9, 9)))
+                .addGap(15, 15, 15))
         );
 
         Paneles.add(Ventana_Triangulos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -574,42 +725,76 @@ public class Interfaz1 extends javax.swing.JFrame {
 
     private void botonDiagonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDiagonalesActionPerformed
         mostrarTriangulo_Panel.removeAll();
+        ocultarPanelExceptoEste(textoDiagonal,true);
+        textoDiagonal.setText("Diagonales: \n\n "
+                + "Cada diagonal indica algo: \n\n "
+                + "La primera indica que solo hay unos. \n\n "
+                + "La segunda indica: \n los números en consecutivo. \n\n"
+                + "En la tercer linea: \n se indica los números triangulares. \n\n"
+                + "En la cuarta linea: \n los números tetraédicos.");
+        
         int dato = Integer.parseInt(valorNum_Filas.getText().trim());
         Diagonal diagonales = new Diagonal();
         int[][] matriz = modelo.TrianguloPascal.crearMatriz(dato);
-        diagonales.triangulo(mostrarTriangulo_Panel.getGraphics(), 285, 30, 30, 30, dato, matriz);
+        diagonales.triangulo(mostrarTriangulo_Panel.getGraphics(), 200, 30, 30, 30, dato, matriz);
     }//GEN-LAST:event_botonDiagonalesActionPerformed
 
     private void botonPar_ImparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPar_ImparActionPerformed
         mostrarTriangulo_Panel.removeAll();
+        ocultarPanelExceptoEste(textoParImpar,true);
+        textoParImpar.setText("Par e Impares: \n\n "
+                + "Si se utilizaz distintos colores: \n "
+                + "para diferenciar los números pares. \n "
+                + "de los números impares\n\n"
+                + "Se obtiene un patrón igual al \n"
+                + "del triángulo de Sierpinski.");
         int dato = Integer.parseInt(valorNum_Filas.getText().trim());
         ParImpar paresImpares = new ParImpar();
         int[][] matriz = modelo.TrianguloPascal.crearMatriz(dato);
-        paresImpares.triangulo(mostrarTriangulo_Panel.getGraphics(), 285, 30, 30, 30, dato, matriz);
+        paresImpares.triangulo(mostrarTriangulo_Panel.getGraphics(), 200, 30, 30, 30, dato, matriz);
     }//GEN-LAST:event_botonPar_ImparActionPerformed
 
     private void botonSuma_HorizontalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSuma_HorizontalActionPerformed
         mostrarTriangulo_Panel.removeAll();
+        ocultarPanelExceptoEste(textoSumaHorizontal,true);
+        textoSumaHorizontal.setText("En esta versión: \n\n "
+                + "Se obtiene las potencias de 2 \n "
+                + "al sumar las filas. \n ");
         int dato = Integer.parseInt(valorNum_Filas.getText().trim());
         SumaHorizontal sumandoHorizontal = new SumaHorizontal();
         int[][] matriz = modelo.TrianguloPascal.crearMatriz(dato);
-        sumandoHorizontal.triangulo(mostrarTriangulo_Panel.getGraphics(), 285, 30, 30, 30, dato, matriz);                                              
+        sumandoHorizontal.triangulo(mostrarTriangulo_Panel.getGraphics(), 200, 30, 30, 30, dato, matriz);                                              
     }//GEN-LAST:event_botonSuma_HorizontalActionPerformed
 
     private void botonSimetriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSimetriaActionPerformed
         mostrarTriangulo_Panel.removeAll();
+        ocultarPanelExceptoEste(textoSimetria,true);
+        textoSimetria.setText("En esta versión: \n\n "
+                + "El triángulo es simétrico, \n "
+                + "lo que se refiere es a que se ve igual \n"
+                + "desde la izquierda que de la derecha \n"
+                + "es como un espejo, una mitad \n"
+                + "es la imagen de la otra.");
         int dato = Integer.parseInt(valorNum_Filas.getText().trim());
         Simetria simeTriangulo = new Simetria();
         int[][] matriz = modelo.TrianguloPascal.crearMatriz(dato);
-        simeTriangulo.triangulo(mostrarTriangulo_Panel.getGraphics(), 285, 30, 30, 30, dato, matriz); 
+        simeTriangulo.triangulo(mostrarTriangulo_Panel.getGraphics(), 200, 30, 30, 30, dato, matriz); 
     }//GEN-LAST:event_botonSimetriaActionPerformed
 
     private void botonFibronacciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFibronacciActionPerformed
         mostrarTriangulo_Panel.removeAll();
+        ocultarPanelExceptoEste(textoFibronacci,true);
+        textoFibronacci.setText("En esta versión: \n\n "
+                + "La sucesión de Fibronacci se , \n "
+                + "puede obtener aplicando la fórmula \n\n"
+                + "fn = fn-1 + fn-2 \n\n"
+                + "se debe usar valores preterminados: \n\n"
+                + "f0 = 1\n"
+                + "f1 = 1");
         int dato = Integer.parseInt(valorNum_Filas.getText().trim());
         Fibronacci fibroTriangulo = new Fibronacci();
         int[][] matriz = modelo.TrianguloPascal.crearMatriz(dato);
-        fibroTriangulo.triangulo(mostrarTriangulo_Panel.getGraphics(), 285, 30, 30, 30, dato, matriz); 
+        fibroTriangulo.triangulo(mostrarTriangulo_Panel.getGraphics(), 200, 30, 30, 30, dato, matriz); 
     }//GEN-LAST:event_botonFibronacciActionPerformed
 
     private void valorNum_FilasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valorNum_FilasActionPerformed
@@ -617,8 +802,24 @@ public class Interfaz1 extends javax.swing.JFrame {
     }//GEN-LAST:event_valorNum_FilasActionPerformed
 
     private void botonIr_QuincunceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIr_QuincunceActionPerformed
-        // TODO add your handling code here:
+        ocultarPanelesExceptoEste(Quincunce);
     }//GEN-LAST:event_botonIr_QuincunceActionPerformed
+
+    private void botonTrianguloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonTrianguloActionPerformed
+        mostrarTriangulo_Panel.removeAll();
+        ocultarPanelExceptoEste(textoPascal,true);
+        textoPascal.setText("En esta versión: \n\n "
+                + "El triángulo de Pascal es un triángulo de números\n" +
+                    "enteros, infinito y simétrico.  \n" +
+                    "Se empieza con la primer fila, y en las siguientes\n" +
+                    "se van colocando números de forma que cada \n" +
+                    "uno de ellos sea la suma de los dos números \n" +
+                    "que tiene encima. \n ");
+        int dato = Integer.parseInt(valorNum_Filas.getText().trim());
+        TrianguloPascal triPascal = new TrianguloPascal();
+        int[][] matriz = modelo.TrianguloPascal.crearMatriz(dato);
+        triPascal.triangulo(mostrarTriangulo_Panel.getGraphics(), 200, 30, 30, 30, dato, matriz);
+    }//GEN-LAST:event_botonTrianguloActionPerformed
     
 
     /**
@@ -680,15 +881,30 @@ public class Interfaz1 extends javax.swing.JFrame {
     private javax.swing.JButton botonSalir_RegistroSismos;
     private javax.swing.JButton botonSimetria;
     private javax.swing.JButton botonSuma_Horizontal;
+    private javax.swing.JButton botonTriangulo;
     private javax.swing.JTextArea detalle_Inicio;
     private javax.swing.JTextArea detalle_Inicio1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JPanel mostrarTriangulo_Panel;
+    private javax.swing.JPanel panelExplicacion;
     private javax.swing.JButton quincunce_boton;
     private javax.swing.JLabel textConfirmarSalida_ConfirmarSalida;
     private javax.swing.JLabel textTitulo_Inicio;
     private javax.swing.JLabel textTitulo_RegistroSismos;
     private javax.swing.JLabel textTitulo_VentanaIntermedia;
+    private javax.swing.JTextPane textoDiagonal;
+    private javax.swing.JTextPane textoFibronacci;
+    private javax.swing.JTextPane textoParImpar;
+    private javax.swing.JTextPane textoPascal;
+    private javax.swing.JTextPane textoSimetria;
+    private javax.swing.JTextPane textoSumaHorizontal;
+    private javax.swing.JLayeredPane textosPaneles;
     private javax.swing.JButton triangulos_Pascal;
     private javax.swing.JTextField valorNum_Filas;
     // End of variables declaration//GEN-END:variables

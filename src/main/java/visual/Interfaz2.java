@@ -91,7 +91,7 @@ public class Interfaz2 extends javax.swing.JFrame {
         int dato = Integer.parseInt(jTextField1.getText());
         int[][] matriz = modelo.TrianguloPascal.crearMatriz(dato);
         //modelo.InterfaceDibuja.triangulo(jPanel1.getGraphics(), 285, 30, 30, 30, dato, matriz);
-        //modelo.logica.triangulo(jPanel1.getGraphics(), 285, 30, 30, 30, dato, matriz);
+        modelo.logica.dibtriangulo(jPanel1.getGraphics(), 285, 30, 8, 8, dato, matriz);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

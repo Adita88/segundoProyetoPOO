@@ -661,4 +661,41 @@ public class logica {
 //        }
 //        
 //    }
+    
+    public static void dibtriangulo(Graphics g, int x, int y, int ancho, int alto, int numFilas, int[][] matriz){
+        int k = 1;
+        int coordenadaX = x;
+        int coordenadaY = y;
+        
+        if(numFilas > 0 && numFilas <= 10){
+            for(int i = 0; i < numFilas; i++){
+
+                for(int j = 0; j < k; j++){
+                    if(j != 0){       
+                        if(i != 9){
+                            coordenadaX += ancho + 30* j + ancho+20/2;
+                            g.fillOval(coordenadaX, coordenadaY, ancho, alto);
+                            //g.drawString(String.0valueOf(matriz[i][j]), coordenadaX+12, coordenadaY+16);
+                            coordenadaX -= ancho +30* j;
+                        } else {
+                            coordenadaX += ancho +30* j + ancho+20/2;
+                            g.fillOval(coordenadaX, coordenadaY, ancho, alto);
+                            //g.drawString(String.valueOf(matriz[i][j]), coordenadaX+8, coordenadaY+18);
+                            coordenadaX -= ancho +30* j;
+                        }
+                    }else {
+                        g.fillOval(coordenadaX, coordenadaY, ancho, alto);
+                        //g.drawString(String.valueOf(matriz[i][j]), coordenadaX+12, coordenadaY+16);
+                    }
+                    coordenadaX -= ancho+20/2;
+
+                }  
+                coordenadaY += alto+20;
+                k ++;
+            }
+        } else {
+            System.out.println("Valor debe ser entre 1 y 10");
+        }
+        
+    }
 }

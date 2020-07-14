@@ -32,8 +32,8 @@ public class SumaHorizontal extends TrianguloPascal{
      */
     public static void dibujarLineas(Graphics g, int x, int y, int ancho, int alto, int sumatoria){
         g.setColor(Color.BLACK);
-        g.drawLine(x+200, y+10, ancho + 500, alto+10 );
-        g.drawString(String.valueOf(sumatoria), x+250, y+10);
+        g.drawLine(x+175, y+10, ancho + 375, alto+10 );
+        g.drawString(String.valueOf(sumatoria), x+225, y+10);
     }
     
     /**
