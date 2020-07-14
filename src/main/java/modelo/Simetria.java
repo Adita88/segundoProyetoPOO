@@ -1,0 +1,139 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package modelo;
+
+import java.awt.Color;
+import java.awt.Graphics;
+
+/**
+ *
+ * @author Usuario
+ */
+public class Simetria extends TrianguloPascal{
+
+    public Simetria() {
+    }
+    
+    
+    public Simetria(int[][] matriz) {
+        super(matriz);
+    }
+    
+     /**
+     * Dibuja el triangulo de Pascal y lo modifica para qeu se visualice la sucesión de Fibronacci
+     * @param g elemento Graphic
+     * @param x int que indica eje x
+     * @param y int que indica eje y 
+     * @param ancho int que idica el ancho de cada rectángulo que conforma el triángulo
+     * @param alto int que indica el alto de cada rectángulo que conforma el triángulo
+     * @param numFilas int que indica el número de filas que tiene que tener el triángulo
+     * @param matriz int[][] que contiene la información que llena el triángulo
+     */
+    @Override
+    public void triangulo(Graphics g, int x, int y, int ancho, int alto, int numFilas, int[][] matriz){
+        int k = 1;
+        int coordenadaX = x;
+        int coordenadaY = y;
+        int cantidad = 0;
+        
+        if (numFilas <= 10) {
+            for(int i = 0; i < numFilas; i++){
+                for(int j = 0; j < k; j++){
+                    cantidad += 1;
+                }
+
+                for(int j = 0; j < k; j++){
+                    if (i == 0 && j == 0) {
+                        g.setColor(Color.LIGHT_GRAY);
+                        g.fillRect(coordenadaX, coordenadaY, ancho, alto);
+                        g.setColor(Color.DARK_GRAY);
+                        g.fillRect(coordenadaX, coordenadaY, ancho/2, alto);
+                        g.setColor(Color.WHITE);
+                        g.drawString(String.valueOf(matriz[i][j]), coordenadaX+12, coordenadaY+16);
+                    } else if(j != 0){       
+                        if(i != 9){
+                            if (cantidad % 2 == 0){
+                                if(j < cantidad / 2){
+                                    g.setColor(Color.DARK_GRAY);
+                                    coordenadaX += ancho * j + ancho/2;
+                                    g.fillRect(coordenadaX, coordenadaY, ancho, alto);
+                                    g.setColor(Color.WHITE);
+                                    g.drawString(String.valueOf(matriz[i][j]), coordenadaX+12, coordenadaY+16);
+                                    coordenadaX -= ancho * j;
+                                } else {
+                                    g.setColor(Color.LIGHT_GRAY);
+                                    coordenadaX += ancho * j + ancho/2;
+                                    g.fillRect(coordenadaX, coordenadaY, ancho, alto);
+                                    g.setColor(Color.WHITE);
+                                    g.drawString(String.valueOf(matriz[i][j]), coordenadaX+12, coordenadaY+16);
+                                    coordenadaX -= ancho * j;
+                                }
+                            } else {
+                                if(j == (int)Math.floor(cantidad / 2)) {
+                                    coordenadaX += ancho * j + ancho/2;
+                                    g.setColor(Color.LIGHT_GRAY);
+                                    g.fillRect(coordenadaX, coordenadaY, ancho, alto);
+                                    g.setColor(Color.DARK_GRAY);
+                                    g.fillRect(coordenadaX, coordenadaY, ancho/2, alto);
+                                    g.setColor(Color.WHITE);
+                                    g.drawString(String.valueOf(matriz[i][j]), coordenadaX+12, coordenadaY+16);
+                                    coordenadaX -= ancho * j;
+                                }
+                                 else if(j <= cantidad / 2){
+                                    g.setColor(Color.DARK_GRAY);
+                                    coordenadaX += ancho * j + ancho/2;
+                                    g.fillRect(coordenadaX, coordenadaY, ancho, alto);
+                                    g.setColor(Color.WHITE);
+                                    g.drawString(String.valueOf(matriz[i][j]), coordenadaX+12, coordenadaY+16);
+                                    coordenadaX -= ancho * j;
+                                } else {
+                                    g.setColor(Color.LIGHT_GRAY);
+                                    coordenadaX += ancho * j + ancho/2;
+                                    g.fillRect(coordenadaX, coordenadaY, ancho, alto);
+                                    g.setColor(Color.WHITE);
+                                    g.drawString(String.valueOf(matriz[i][j]), coordenadaX+12, coordenadaY+16);
+                                    coordenadaX -= ancho * j;
+                                }
+                            }
+
+                        } else {
+                            if (j < 5){
+                                g.setColor(Color.DARK_GRAY);
+                                coordenadaX += ancho * j + ancho/2;
+                                g.fillRect(coordenadaX, coordenadaY, ancho, alto);
+                                g.setColor(Color.WHITE);
+                                g.drawString(String.valueOf(matriz[i][j]), coordenadaX+8, coordenadaY+18);
+                                coordenadaX -= ancho * j;
+                            } else {
+                                g.setColor(Color.LIGHT_GRAY);
+                                coordenadaX += ancho * j + ancho/2;
+                                g.fillRect(coordenadaX, coordenadaY, ancho, alto);
+                                g.setColor(Color.WHITE);
+                                g.drawString(String.valueOf(matriz[i][j]), coordenadaX+8, coordenadaY+18);
+                                coordenadaX -= ancho * j;
+                            }
+                              
+                        }
+
+                    }else {
+                        g.setColor(Color.DARK_GRAY);
+                        g.fillRect(coordenadaX, coordenadaY, ancho, alto);
+                        g.setColor(Color.WHITE);
+                        g.drawString(String.valueOf(matriz[i][j]), coordenadaX+12, coordenadaY+16);
+                    }
+                    coordenadaX -= ancho/2;
+                }  
+                cantidad = 0;
+                coordenadaY += alto;
+                k ++;
+            }
+        
+        } else {
+            System.out.println("El valor debe ser de 1 a 10");
+        }
+    }
+    
+}
